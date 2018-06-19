@@ -1,5 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-  Hello
+  <div>
+    <a href="{% url 'article-create' %}" class="btn btn-success">Create new</a>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Creation date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in articles %}
+        <tr>
+          <td>{{a.name}}</td>
+          <td>{{a.create_date}}</td>
+          <td>
+            <a href="{% url 'article-show' a.id %}" class="btn btn-success">Show</a>
+            <a href="{% url 'article-edit' a.id %}" class="btn btn-default">Edit</a>
+            <form action="{% url 'article-delete' a.id %}" method="post">
+              {% csrf_token %}
+                <button class="btn btn-danger" type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock content %}
