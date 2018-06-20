@@ -5,32 +5,45 @@
     <h2>Todo list</h2>
     <hr>
 
-    <div class="col-md-6">
-      <form id="todo-create-form" action="{% url 'todo-create' %}" method="post">
-        {% csrf_token %}
-        <div class="input-group mb-3">
-          {{form.content}}
-          <div class="input-group-append">
-            <button class="btn btn-success" type="submit">Add</button>
+    <div class="row">
+      <div class="col-md-6">
+        <form id="todo-create-form" action="{% url 'todo-create' %}" method="post">
+          {% csrf_token %}
+          <div class="input-group mb-3">
+            {{form.content}}
+            <div class="input-group-append">
+              <button class="btn btn-success" type="submit">Add</button>
+            </div>
           </div>
-        </div>
-      </form>
-  
-      <ul class="list-group">
-        {% for t in todos %}
-          <li class="list-group-item">
-            {{t.content}}
-            <form class="inline todo-delete-form" action="{% url 'todo-delete' t.id %}" method="post">
-                {% csrf_token %}
-                <button class="btn btn-link float-right" type="submit" style="margin:0;padding:0;">X</button>
-            </form>
-          </li>
-        {% empty %}
-          <p>No todos</p>
-        {% endfor %}
-      </ul>
-    </div>
+        </form>
     
+        <ul class="list-group">
+          {% for t in todos %}
+            <li class="list-group-item">
+              {{t.content}}
+              <form class="inline todo-delete-form" action="{% url 'todo-delete' t.id %}" method="post">
+                  {% csrf_token %}
+                  <button class="btn btn-link float-right" type="submit" style="margin:0;padding:0;">X</button>
+              </form>
+            </li>
+          {% empty %}
+            <p>No todos</p>
+          {% endfor %}
+        </ul>
+
+        <br>
+
+      </div>
+      <div class="col-md-4 offset-md-2">
+        <div class="card bg-light mb-3">
+          <div class="card-header">Your task list</div>
+          <dic class="card-body">
+            <p class="card-text">Feel free to add your tasks</p>
+          </dic>
+        </div>
+      </div>
+    </div>
+
   </div>
 {% endblock content %}
 
