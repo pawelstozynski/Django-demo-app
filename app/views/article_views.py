@@ -9,6 +9,15 @@ def index(request):
     return render(request, 'article/index.html', {'articles':articles})
 
 
+def article_search(request):
+    if request.method == 'POST':
+        search_string = request.POST['search']
+        articles = Article.objects.filter(name__contains=search_string)
+        return render(request, 'article/index.html', {'articles':articles})
+    else:
+        return HttpResponse('Not allowed')
+
+
 def article_show(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     return render(request, 'article/show.html', {'article':article})

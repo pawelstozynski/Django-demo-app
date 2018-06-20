@@ -5,8 +5,33 @@
     <div>
       <h2>List of articles</h2>
       <hr>
-      <a href="{% url 'article-create' %}" class="btn btn-success">Create new</a>
-      <br><br>
+      <div class="row">
+        <div class="col-md-6">
+          <form action="{% url 'article-search' %}" method="post">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+              <input class="form-control" placeholder="Search" name="search"/>
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">Search</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- <div class="col-md-4">
+          <div class="form-group">
+            <select class="form-control">
+              <option>Name ascending</option>
+              <option>Name descending</option>
+              <option>Date ascending</option>
+              <option>Date descending</option>
+            </select>
+          </div>
+        </div> -->
+        <div class="col-md-6">
+          <a href="{% url 'article-create' %}" class="btn btn-success float-right">Create new</a>
+        </div>
+      </div>
+      <br>
     </div>
   
     <table class="table">

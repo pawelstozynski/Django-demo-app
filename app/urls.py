@@ -4,6 +4,7 @@ from .views import article_views, todo_views
 
 urlpatterns = [
     path('', article_views.index, name='index'),
+    path('article/search/', article_views.article_search, name='article-search'),
     path('article/<int:article_id>/', article_views.article_show, name='article-show'),
     path('article/create/', article_views.article_create, name='article-create'),
     path('article/<int:article_id>/edit/', article_views.article_edit, name='article-edit'),
