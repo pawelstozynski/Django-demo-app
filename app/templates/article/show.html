@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h2>{{article.name}}</h2>
-  <h4>Created at {{article.create_date}}</h4>
-  <p>{{article.content}}</p>
+  <div class="container">
+    <a href="/">Back to articles</a>
+    <h2>{{article.name}}</h2>
+    <p>Created at {{article.create_date}}</p>
+    <hr>
+    <p>{{article.content}}</p>
+  </div>
 {% endblock content %}

@@ -1,33 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div>
-    <a href="{% url 'article-create' %}" class="btn btn-success">Create new</a>
-  </div>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Creation date</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for a in articles %}
+  <div class="container">
+    <div>
+      <h2>List of articles</h2>
+      <hr>
+      <a href="{% url 'article-create' %}" class="btn btn-success">Create new</a>
+      <br><br>
+    </div>
+  
+    <table class="table">
+      <thead>
         <tr>
-          <td>{{a.name}}</td>
-          <td>{{a.create_date}}</td>
-          <td>
-            <a href="{% url 'article-show' a.id %}" class="btn btn-success">Show</a>
-            <a href="{% url 'article-edit' a.id %}" class="btn btn-default">Edit</a>
-            <form action="{% url 'article-delete' a.id %}" method="post" class="inline">
-              {% csrf_token %}
-                <button class="btn btn-danger" type="submit">Delete</button>
-            </form>
-          </td>
+          <th>Name</th>
+          <th>Creation date</th>
+          <th>Actions</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {% for a in articles %}
+          <tr>
+            <td>{{a.name}}</td>
+            <td>{{a.create_date}}</td>
+            <td>
+              <a href="{% url 'article-show' a.id %}" class="btn btn-primary">Show</a>
+              <a href="{% url 'article-edit' a.id %}" class="btn btn-light">Edit</a>
+              <form action="{% url 'article-delete' a.id %}" method="post" class="inline">
+                {% csrf_token %}
+                  <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 {% endblock content %}
