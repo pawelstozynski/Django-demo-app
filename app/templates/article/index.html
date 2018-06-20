@@ -50,12 +50,12 @@
             <td>
               <a href="{% url 'article-show' a.id %}" class="btn btn-primary btn-sm">Show</a>
               <a href="{% url 'article-edit' a.id %}" class="btn btn-light btn-sm">Edit</a>
-              <button data-toggle="modal" data-target="#deleteArticleModal" class="btn btn-danger btn-sm">Delete</button>
+              <button data-toggle="modal" data-target="#deleteArticleModal{{a.id}}" class="btn btn-danger btn-sm">Delete</button>
             </td>
           </tr>
 
           <!-- Modal -->
-          <div class="modal fade" id="deleteArticleModal" role="dialog">
+          <div class="modal fade" id="deleteArticleModal{{a.id}}" role="dialog">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
