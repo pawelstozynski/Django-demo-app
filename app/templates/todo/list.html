@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <h2>Todo list</h2>
+    <hr>
+    <form id="todo-create-form" action="{% url 'todo-create' %}" method="post">
+      {% csrf_token %}
+      <div class="input-group mb-3">
+        {{form.content}}
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">Add</button>
+        </div>
+      </div>
+    </form>
+
+    <ul class="list-group">
+      {% for t in todos %}
+        <li class="list-group-item">
+          {{t.content}}
+          <form class="inline todo-delete-form" action="{% url 'todo-delete' t.id %}" method="post">
+              {% csrf_token %}
+              <button class="btn btn-link float-right" type="submit" style="margin:0;padding:0;">X</button>
+          </form>
+        </li>
+      {% empty %}
+        <p>No todos</p>
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock content %}
+
+
+{% block script %}
+<!-- <script>
+$(document).ready(() => {
+  $("#todo-create-form").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+      url: "{% url 'todo-create' %}",
+      method: "POST",
+      data: {
+
+      },
+      success: (res) => {
+        console.log(res)
+      },
+      error: (res) => {
+        console.log(res)
+      }
+    })
+  })
+})
+</script> -->
+{% endblock script %}

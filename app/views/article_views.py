@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 
-from .forms import *
-from .models import *
+from ..forms import *
+from ..models import *
 
 
 def index(request):
