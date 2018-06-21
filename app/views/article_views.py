@@ -54,3 +54,19 @@ def article_delete(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     article.delete()
     return redirect('article-list')
+
+
+@require_POST
+def article_comment(request, article_id):
+    article = get_object_or_404(Article, id=article_id)
+    comment = Comment(content=request.POST['comment'], article=article)
+    comment.save()
+    return redirect('article-show', article_id)
+
+
+@require_POST
+def article_comment_delete(request, article_id, comment_id):
+    comment = get_object_or_404(Comment, id=comment_id)
+    comment.delete()
+    return redirect('article-show', article_id)
+    
