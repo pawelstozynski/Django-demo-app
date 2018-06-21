@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Hello world!</h1>
+    <p class="lead">Welcome to Django demo app!</p>
+  </div>
+
+  <hr>
+  <br>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Articles</h5>
+          <p class="card-text">Explore article system</p>
+          <a href="/article/" class="btn btn-primary">Go</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Todos</h5>
+          <p class="card-text">Explore todo list</p>
+          <a href="/todo/" class="btn btn-primary">Go</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+  <br>
   <div class="container">
     <h2>Todo list</h2>
     <hr>
@@ -46,27 +47,3 @@
 
   </div>
 {% endblock content %}
-
-
-{% block script %}
-<!-- <script>
-$(document).ready(() => {
-  $("#todo-create-form").submit((e) => {
-    e.preventDefault();
-    $.ajax({
-      url: "{% url 'todo-create' %}",
-      method: "POST",
-      data: {
-
-      },
-      success: (res) => {
-        console.log(res)
-      },
-      error: (res) => {
-        console.log(res)
-      }
-    })
-  })
-})
-</script> -->
-{% endblock script %}
