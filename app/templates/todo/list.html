@@ -23,8 +23,8 @@
             <li class="list-group-item">
               {{t.content}}
               <form class="inline todo-delete-form" action="{% url 'todo-delete' t.id %}" method="post">
-                  {% csrf_token %}
-                  <button class="btn btn-link float-right" type="submit" style="margin:0;padding:0;">X</button>
+                {% csrf_token %}
+                <button class="btn btn-link float-right" type="submit" style="margin:0;padding:0;">X</button>
               </form>
             </li>
           {% empty %}
