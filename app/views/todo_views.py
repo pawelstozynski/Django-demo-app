@@ -18,7 +18,7 @@ def todo_create(request):
     form = TodoForm(request.POST)
     if form.is_valid():
         todo = form.save()
-        return redirect('todo-list')
+    return redirect('todo-list')
 
 
 @require_POST

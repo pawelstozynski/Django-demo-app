@@ -33,7 +33,7 @@ def article_create(request):
             return redirect('article-list')
     else:
         form = ArticleForm()
-        return render(request, 'article/create.html', {'form':form})
+    return render(request, 'article/create.html', {'form':form})
 
 
 @require_http_methods(['GET', 'POST'])
@@ -46,7 +46,7 @@ def article_edit(request, article_id):
             return redirect('article-list')
     else:
         form = ArticleForm(instance=article)
-        return render(request, 'article/edit.html', {'form':form, 'article':article})
+    return render(request, 'article/edit.html', {'form':form, 'article':article})
 
 
 @require_POST
